@@ -1,12 +1,11 @@
-import * as mongoose from "mongoose";
 import { getModelForClass, prop } from "@typegoose/typegoose";
 
 class Messages {
-  @prop({ type: () => mongoose.Types.ObjectId })
-  roomId!: mongoose.Types.ObjectId;
+  @prop({ type: () => String })
+  roomId!: string;
 
-  @prop({ type: () => mongoose.Types.ObjectId })
-  sender!: mongoose.Types.ObjectId;
+  @prop({ type: () => String })
+  sender!: string;
 
   @prop({ type: () => String, default: "" })
   content: string;
