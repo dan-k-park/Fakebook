@@ -39,7 +39,7 @@ router.get("/", async (req: Express.Request, res: Express.Response) => {
       ? await UserModel.findById(userId)
       : await UserModel.findOne({ username: username });
     console.log(user);
-    const { password, updatedAt, ...other } = user!._doc;
+    const { password, updatedAt, ...other } = (user as any)!._doc; // doing this to avoid type error
     res.status(200).json(other);
   } catch (error) {
     res.status(500).json(error);
