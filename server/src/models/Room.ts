@@ -1,12 +1,12 @@
 import { getModelForClass, prop } from "@typegoose/typegoose";
 
-class MessageRooms {
+class Rooms {
   @prop({ type: () => [String], default: [] })
   members: string[];
 }
 
-const MessageRoomModel = getModelForClass(MessageRooms, {
+const RoomModel = getModelForClass(Rooms, {
   schemaOptions: { timestamps: true },
 });
 
-export default MessageRoomModel;
+export default RoomModel;

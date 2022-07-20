@@ -31,8 +31,8 @@ const User_1 = __importDefault(require("../models/User"));
 const Post_1 = __importDefault(require("../models/Post"));
 const router = Express.Router();
 router.post("/", async (req, res) => {
+    const newPost = new Post_1.default(req.body);
     try {
-        const newPost = new Post_1.default(req.body);
         const post = await newPost.save();
         res.status(200).json(post);
     }
