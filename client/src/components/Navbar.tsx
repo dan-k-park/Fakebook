@@ -13,24 +13,20 @@ export const Navbar = () => {
 
   return (
     <div className="h-[50px] w-full flex items-center sticky top-0 z-10 bg-sky-500">
-      <div className="flex-[3]">
+      <div className="flex-[5]">
         <Link to="/">
           <span className="text-[24px] ml-[20px] font-bold text-white cursor-pointer">
             Fakebook
           </span>
         </Link>
       </div>
-      <div className="flex-[5]">
+      <div className="flex-[6]">
         <div className="flex items-center w-full h-[30px] bg-white rounded-[30px]">
-          <Search className="text-[20px] ml-10px" />
+          <Search className="text-[20px] ml-[10px]" />
           <input className="border-none w-[70%] focus:outline-none" />
         </div>
       </div>
-      <div className="flex-[4] flex items-center justify-around text-white">
-        <div>
-          <span className="mr-[10px] text-[14px] cursor-pointer">Home</span>
-          <span className="mr-[10px] text-[14px] cursor-pointer">Timeline</span>
-        </div>
+      <div className="flex-[4] flex items-center justify-end mr-[10px] text-white">
         <div className="flex">
           <div className="mr-[15px] cursor-poitner relative">
             <Person />
