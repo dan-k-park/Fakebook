@@ -7,9 +7,11 @@ export const Home = () => {
   return (
     <>
       <Navbar />
-      <Categories />
-      <Feed />
-      <Friends />
+      <div className="w-full flex bg-gray-100">
+        <Categories />
+        <Feed />
+        <Friends />
+      </div>
     </>
   );
 };
