@@ -1,4 +1,4 @@
-import { Bookmark, Event, Group, Person, Store } from "@mui/icons-material";
+import { Bookmark, Group, Newspaper, Person, Store } from "@mui/icons-material";
 import { Link } from "react-router-dom";
 
 export const Categories = () => {
@@ -6,38 +6,48 @@ export const Categories = () => {
 
   return (
     <div className="flex-[3] h-[calc(100vh-50px)] overflow-y-scroll sticky top-[50px]">
-      <div className="p-[20px]">
+      <div className="py-[10px] px-[15px]">
         <ul className="p-0 m-0 list-none">
           <Link to="/dfas">
-            <li className="flex items-center mb-[20px]">
+            <li className="flex py-[8px] pl-[6px] items-center mb-[10px] hover:bg-gray-200 hover:rounded-lg">
               <img
                 src={publicFolder + "/assets/person/noAvatar.png"}
                 alt="User avatar"
-                className="w-[32px] h-[32px] rounded-full object-cover cursor-pointer mr-[15px]"
+                className="w-[30px] h-[30px] rounded-full object-cover cursor-pointer mr-[15px]"
               />
-              <span className="text-[20px]">User</span>
+              <span className="text-[16px]">User</span>
             </li>
           </Link>
-          <li className="flex items-center mb-[20px]">
-            <Person className="mr-[15px] text-[40px]" />
-            <span className="text-[20px]">Friends</span>
-          </li>
-          <li className="flex items-center mb-[20px]">
-            <Group className="mr-[15px]" />
-            <span>Groups</span>
-          </li>
-          <li className="flex items-center mb-[20px]">
-            <Bookmark className="mr-[15px]" />
-            <span>Saved</span>
-          </li>
-          <li className="flex items-center mb-[20px]">
-            <Store className="mr-[15px]" />
-            <span>Marketplace</span>
-          </li>
-          <li className="flex items-center mb-[20px]">
-            <Event className="mr-[15px]" />
-            <span>Events</span>
-          </li>
+          <Link to="/">
+            <li className="flex py-[8px] pl-[6px] items-center mb-[10px] hover:bg-gray-200 hover:rounded-lg">
+              <Person className="mr-[15px] text-[30px]" />
+              <span className="text-[16px]">Friends</span>
+            </li>
+          </Link>
+          <Link to="/">
+            <li className="flex py-[8px] pl-[6px] items-center mb-[10px] hover:bg-gray-200 hover:rounded-lg">
+              <Group className="mr-[15px] text-[30px]" />
+              <span className="text-[16px]">Groups</span>
+            </li>
+          </Link>
+          <Link to="/">
+            <li className="flex py-[8px] pl-[6px] items-center mb-[10px] hover:bg-gray-200 hover:rounded-lg">
+              <Bookmark className="mr-[15px] text-[30px]" />
+              <span className="text-[16px]">Saved</span>
+            </li>
+          </Link>
+          <Link to="/">
+            <li className="flex py-[8px] pl-[6px] items-center mb-[10px] hover:bg-gray-200 hover:rounded-lg">
+              <Store className="mr-[15px] text-[30px]" />
+              <span className="text-[16px]">Marketplace</span>
+            </li>
+          </Link>
+          <Link to="/">
+            <li className="flex py-[8px] pl-[6px] items-center mb-[10px] hover:bg-gray-200 hover:rounded-lg">
+              <Newspaper className="mr-[15px] text-[30px]" />
+              <span className="text-[16px]">News</span>
+            </li>
+          </Link>
         </ul>
       </div>
     </div>
