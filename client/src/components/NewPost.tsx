@@ -38,7 +38,7 @@ export const NewPost = () => {
     }
   };
   return (
-    <div className="w-full rounded-sm shadow-black">
+    <div className="w-full rounded-lg bg-white shadow-sm shadow-gray-300">
       <div className="p-[10px]">
         <div className="flex items-center">
           <img
@@ -71,7 +71,7 @@ export const NewPost = () => {
           <div className="flex ml-[20px]">
             <label htmlFor="file" className={styles.option}>
               <PermMedia htmlColor="tomato" className={styles.optionIcon} />
-              <span className={styles.optionType}>Photo or Video</span>
+              <span className={styles.optionType}>Photo</span>
             </label>
             <div className={styles.option}>
               <Label htmlColor="blue" className={styles.optionIcon} />
@@ -89,7 +89,7 @@ export const NewPost = () => {
               <span className={styles.optionType}>Feelings</span>
             </div>
           </div>
-          <button className="border-none p-[7px] rounded-md bg-green-500 ">
+          <button className="border-none p-[7px] rounded-md bg-green-500 text-white">
             Share
           </button>
         </form>
