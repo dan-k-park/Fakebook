@@ -1,4 +1,4 @@
-import { getModelForClass, prop } from "@typegoose/typegoose";
+import { getModelForClass, prop, ReturnModelType } from "@typegoose/typegoose";
 
 class Users {
   @prop({
@@ -35,7 +35,7 @@ class Users {
   from: string;
 }
 
-const UserModel = getModelForClass(Users, {
+const UserModel: ReturnModelType<typeof Users> = getModelForClass(Users, {
   schemaOptions: { timestamps: true },
 });
 

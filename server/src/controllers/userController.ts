@@ -4,31 +4,6 @@ import UserModel from "../models/User";
 
 const router = Express.Router();
 
-// Create User
-export const createUser = async (
-  req: Express.Request,
-  res: Express.Response
-) => {
-  const { username, bio, city, from } = req.body;
-  try {
-    const salt = await bcrypt.genSalt(10);
-    const hashedPassword = await bcrypt.hash(req.body.password, salt);
-
-    const newUser = new UserModel({
-      username: username,
-      password: hashedPassword,
-      bio: bio,
-      city: city,
-      from: from,
-    });
-
-    const user = await newUser.save();
-    res.status(200).json(user);
-  } catch (error) {
-    res.status(500).json(error);
-  }
-};
-
 // Get a User
 export const getUser = async (req: Express.Request, res: Express.Response) => {
   const userId = req.query.userId;
