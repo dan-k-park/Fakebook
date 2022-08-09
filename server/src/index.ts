@@ -1,5 +1,5 @@
 import "dotenv-safe/config";
-import express from "express";
+import express, { NextFunction, Request, Response } from "express";
 import helmet from "helmet";
 import connection from "./config/database";
 import session from "express-session";
@@ -44,7 +44,11 @@ app.get("/", (req, res) => {
 
 app.use(passport.initialize());
 app.use(passport.session());
-
+app.use((req: Request, _: Response, next: NextFunction) => {
+  console.log(req.session);
+  console.log(req.user);
+  next();
+});
 app.use("/api/users", userRouter);
 app.use("/api/auth", authRouter);
 app.use("/api/posts", postRouter);
