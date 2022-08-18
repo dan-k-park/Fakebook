@@ -40,11 +40,6 @@ app.get("/", (req, res) => {
 });
 app.use(passport_1.default.initialize());
 app.use(passport_1.default.session());
-app.use((req, _, next) => {
-    console.log(req.session);
-    console.log(req.user);
-    next();
-});
 app.use("/api/users", users_1.default);
 app.use("/api/auth", auth_1.default);
 app.use("/api/posts", posts_1.default);
@@ -53,5 +48,4 @@ app.use("/api/rooms", rooms_1.default);
 app.listen(8000, () => {
     console.log("Server running on port 8000");
 });
-``;
 //# sourceMappingURL=index.js.map
