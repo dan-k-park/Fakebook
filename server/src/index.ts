@@ -36,14 +36,18 @@ app.use(
   })
 );
 
-// Testing for sessions
-app.get("/", (req, res) => {
-  console.log(req.session);
-  res.send("<h1>Hello</h1>");
-});
-
+// Happen on every single route request
 app.use(passport.initialize());
 app.use(passport.session());
+
+app.use(
+  (req: express.Request, res: express.Response, next: express.NextFunction) => {
+    console.log(req.session);
+    console.log(req.user);
+    next();
+  }
+);
+
 app.use("/api/users", userRouter);
 app.use("/api/auth", authRouter);
 app.use("/api/posts", postRouter);

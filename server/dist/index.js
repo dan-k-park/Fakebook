@@ -34,12 +34,13 @@ app.use((0, express_session_1.default)({
         maxAge: 1000 * 60 * 60 * 24,
     },
 }));
-app.get("/", (req, res) => {
-    console.log(req.session);
-    res.send("<h1>Hello</h1>");
-});
 app.use(passport_1.default.initialize());
 app.use(passport_1.default.session());
+app.use((req, res, next) => {
+    console.log(req.session);
+    console.log(req.user);
+    next();
+});
 app.use("/api/users", users_1.default);
 app.use("/api/auth", auth_1.default);
 app.use("/api/posts", posts_1.default);

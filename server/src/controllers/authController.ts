@@ -42,4 +42,17 @@ export const loginUser = async (
   }
 };
 
+export const logoutUser = async (
+  req: Express.Request,
+  res: Express.Response,
+  next: Express.NextFunction
+) => {
+  req.logout((err) => {
+    if (err) {
+      return next(err);
+    }
+    res.redirect("/");
+  });
+};
+
 export default router;
