@@ -1,3 +1,4 @@
+import { Context } from "./types/index.d";
 import "dotenv-safe/config";
 import express from "express";
 import helmet from "helmet";
@@ -11,6 +12,7 @@ import authRouter from "./routes/auth";
 import userRouter from "./routes/users";
 import messageRouter from "./routes/messages";
 import roomRouter from "./routes/rooms";
+import { isAuth } from "./middlewares/authMiddleware";
 require("./config/passport");
 
 const app = express();
@@ -40,13 +42,15 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use(
-  (req: express.Request, res: express.Response, next: express.NextFunction) => {
-    console.log(req.session);
-    console.log(req.user);
-    next();
-  }
-);
+// app.use((context: Context) => {
+//   console.log(context.req.session);
+//   console.log(context.req.user);
+//   context.next();
+// });
+
+app.get("/protected-route", isAuth, (context: Context) => {
+  context.res.send("You made it to the protected route");
+});
 
 app.use("/api/users", userRouter);
 app.use("/api/auth", authRouter);

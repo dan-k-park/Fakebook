@@ -16,6 +16,7 @@ const auth_1 = __importDefault(require("./routes/auth"));
 const users_1 = __importDefault(require("./routes/users"));
 const messages_1 = __importDefault(require("./routes/messages"));
 const rooms_1 = __importDefault(require("./routes/rooms"));
+const authMiddleware_1 = require("./middlewares/authMiddleware");
 require("./config/passport");
 const app = (0, express_1.default)();
 app.use(express_1.default.json());
@@ -36,10 +37,8 @@ app.use((0, express_session_1.default)({
 }));
 app.use(passport_1.default.initialize());
 app.use(passport_1.default.session());
-app.use((req, res, next) => {
-    console.log(req.session);
-    console.log(req.user);
-    next();
+app.get("/protected-route", authMiddleware_1.isAuth, (context) => {
+    context.res.send("You made it to the protected route");
 });
 app.use("/api/users", users_1.default);
 app.use("/api/auth", auth_1.default);

@@ -51,7 +51,7 @@ export const logoutUser = async (
     if (err) {
       return next(err);
     }
-    res.redirect("/");
+    res.status(200).json("You are now logged out.");
   });
 };
 
