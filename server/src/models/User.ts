@@ -23,7 +23,7 @@ class Users {
   friends: string[];
 
   @prop({ type: Boolean, default: false })
-  isAdmin: false;
+  isAdmin: boolean;
 
   @prop({ type: String, maxlength: 160, default: "" })
   bio: string;

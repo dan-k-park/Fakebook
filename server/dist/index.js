@@ -40,6 +40,9 @@ app.use(passport_1.default.session());
 app.get("/protected-route", authMiddleware_1.isAuth, (context) => {
     context.res.send("You made it to the protected route");
 });
+app.get("/admin-route", authMiddleware_1.isAuth, (context) => {
+    context.res.send("You made it to the admin route");
+});
 app.use("/api/users", users_1.default);
 app.use("/api/auth", auth_1.default);
 app.use("/api/posts", posts_1.default);

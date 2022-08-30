@@ -22,7 +22,6 @@ export const registerUser = async (
     });
 
     const user = await newUser.save();
-    console.log(user);
     res.status(200).json(user);
   } catch (error) {
     res.status(500).json(error);

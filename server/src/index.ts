@@ -42,14 +42,13 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-// app.use((context: Context) => {
-//   console.log(context.req.session);
-//   console.log(context.req.user);
-//   context.next();
-// });
-
+// Routes for testing authentication middlewares
 app.get("/protected-route", isAuth, (context: Context) => {
   context.res.send("You made it to the protected route");
+});
+
+app.get("/admin-route", isAuth, (context: Context) => {
+  context.res.send("You made it to the admin route");
 });
 
 app.use("/api/users", userRouter);
